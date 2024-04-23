@@ -1,0 +1,918 @@
+body {
+  background: #f8f8f8;
+  color: var(--text-color);
+}
+
+.l- {
+
+  // ヘッダー
+  &header {
+    padding: 20px 40px;
+    filter: drop-shadow(3px 3px 8px rgba(208, 214, 223 ,0.6));
+    background-color: #f8f8f8;
+    border-radius: 40px;
+    position: fixed;
+    z-index: 10;
+    width: calc(100% - 80px);
+    left: 50%;
+    top: 20px;
+    z-index: 12;
+    transform: translateX(-50%);
+    @media (max-width: 1024px) {
+      padding: 14px 18px;
+      width: calc(100% - 40px);
+    }
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+      box-shadow: -3px -3px 4px #fff;
+      //background: #fff;
+    }
+    &__inner {
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    &__index {
+      display: flex;
+      align-items: center;
+    }
+    &__title {
+      font-weight: bold;
+      font-size: 18px;
+      @media (max-width: 1024px) {
+        font-size: 15px;
+      }
+    }
+    &__logo {
+      margin: 0 20px 0 0;
+      @media (max-width: 1024px) {
+        width: 100px;
+      }
+      @media (max-width: 600px) {
+        margin: 0 15px 0 0;
+      }
+    }
+    &__lang {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &Item {
+        font-weight: bold;
+        @media (max-width: 600px) {
+          font-size: 13px;
+        }
+        &::before {
+          font-weight: normal;
+        }
+        &:last-child {
+          padding: 0 0 0 18px;
+          position: relative;
+          @media (max-width: 600px) {
+            padding: 0 0 0 10px;
+          }
+          &::before {
+            content: '/';
+            position: absolute;
+            top: 50%;
+            left: 8px;
+            transform: translateY(-50%);
+            font-size: 10px;
+            @media (max-width: 600px) {
+              left: 4px;
+            }
+          }
+        }
+      }
+      &Link {
+        transition: all .3s;
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+
+  // フッター
+  &footer {
+    background-color: var(--primary-color);
+    padding: 40px 20px;
+    &Text {
+      text-align: center;
+      color: var(--white-color);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  // 検索
+  &search {
+    &__inner {
+      margin: 0 auto;
+      width: 1024px;
+      @media (max-width: 1024px) {
+        width: 100%;
+        padding: 0 20px;
+      }
+    }
+    &__wrap {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 1024px) {
+        flex-wrap: wrap;
+      }
+    }
+    &__box {
+      @media (max-width: 1024px) {
+        width: 100%;
+        margin: 0 auto 20px;
+      }
+    }
+    &__tag {
+      display: flex;
+      align-items: center;
+      margin: 20px auto 0;
+      @media (max-width: 600px) {
+        flex-wrap: wrap;
+      }
+      &Text {
+        margin: 0 10px 0 0;
+        font-size: 14px;
+        @media (max-width: 600px) {
+          width: 100%;
+          margin: 0 0 10px 0;
+        }
+      }
+      &List {
+        display: flex;
+        letter-spacing: 0.06em;
+        @media (max-width: 600px) {
+          flex-wrap: wrap;
+        }
+      }
+      &Item {
+        color: var(--text-color);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all .3s;
+        // border: 2px solid var(--primary-color);
+        // background-color: var(--primary-color);
+        // color: var(--white-color);
+        // padding: 2px 16px;
+        // border-radius: 12px;
+        @media (max-width: 600px) {
+          margin: 0 0 10px 0;
+        }
+        &:hover {
+          // color: var(--primary-color);
+          // background-color: var(--white-color);
+          color: var(--primary-color);
+        }
+        &:not(:last-child) {
+          margin: 0 20px 0 0;
+          @media (max-width: 600px) {
+            margin: 0 15px 10px 0;
+          }
+        }
+        span {
+          cursor: pointer;
+        }
+        input[type="checkbox"] {
+          display: none;
+        }
+        input[type="checkbox"]:checked + span {
+          color: var(--primary-color);
+          font-weight: bold;
+        }
+      }
+    }
+    &__input {
+      border: 1px solid #ccc;
+      width: 500px;
+      margin: 0 20px 0 0;
+      height: 42px;
+      padding: 0 20px;
+      background: #fcfcfc;
+      border-radius: 40px;
+      font-size: 14px;
+      color: var(--text-color);
+      @media (max-width: 1024px) {
+        width: 400px;
+        margin: 0 10px 0 0;
+      }
+      @media (max-width: 600px)  {
+        width: 100%;
+        margin: 0 auto 10px;
+        height: 40px;
+      }
+      &::placeholder {
+        color: #ccc;
+        font-size: 14px;
+      }
+    }
+    &__button {
+      color: var(--white-color);
+      border: 2px solid var(--primary-color);
+      background-color: var(--primary-color);
+      padding: 0 10px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      width: 150px;
+      height: 42px;
+      border-radius: 25px;
+      text-align: center;
+      transition: all .3s;
+      @media (max-width: 600px)  {
+        height: 36px;
+        width: 100%;
+      }
+      &:hover {
+        color: var(--primary-color);
+        background-color: var(--white-color);
+      }
+    }
+    &__result {
+      &Error {
+        color: var(--alert-color);
+        font-size: 14px;
+        margin: 8px auto 0;
+        @media (max-width: 1024px) {
+          font-size: 13px;
+        }
+      }
+      &None {
+        font-size: 14px;
+        margin: 80px auto 0;
+        letter-spacing: 0.05em;
+        @media (max-width: 1024px) {
+          margin: 30px auto 0;
+        }
+      }
+      &Link {
+        color: var(--primary-color);
+        margin: 14px auto 0;
+        font-size: 14px;
+        transition: all .3s;
+        @media (max-width: 1024px) {
+          font-size: 13px;
+        }
+        &:hover {
+          color: var(--text-color);
+        }
+      }
+    }
+  }
+
+  // コンテンツ（各ページ共通）
+  &contents {
+    &__inner {
+      margin: 80px auto 0;
+      width: 1024px;
+      @media (max-width: 1024px) {
+        width: 100%;
+        padding: 0 20px;
+        margin: 30px auto 0;
+      }
+    }
+  }
+
+  &breadcrumb {
+    margin: 0 auto 60px;
+    width: 1024px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.08em;
+    @media (max-width: 1024px) {
+      width: 100%;
+      margin: 0 auto 30px;
+      padding: 0 20px;
+    }
+    &__item {
+      position: relative;
+      &:first-child {
+        padding: 0 0 0 28px;
+        &::before {
+          content: "\e88a";
+          font-family: 'Material Icons';
+          top: 50%;
+          transform: translateY(-50%);
+          top: 50%;
+          left: 0;
+          width: 40px;
+          font-size: 20px;
+          color: var(--primary-color);
+          position: absolute;
+        }
+      }
+      &:not(:first-child) {
+        position: relative;
+        padding: 0 0 0 40px;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          top: 50%;
+          left: 14px;
+          width: 10px;
+          height: 10px;
+          border-right: 3px solid var(--primary-color);
+          border-top: 3px solid var(--primary-color);
+          -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+        }
+      }
+      &Text, &Link {
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        line-height: 1.4;
+        @media (max-width: 1024px) {
+          font-size: 13px;
+        }
+      }
+      &Text {
+
+      }
+      &Link {
+        transition: all .3s;
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+
+  &main {
+    margin: 180px auto 120px;
+    @media (max-width: 1024px) {
+      margin: 120px auto 80px;
+    }
+  }
+}
+
+.p- {
+
+  // 作品詳細
+  &workDetail {
+    &__title {
+      font-size: 32px;
+      letter-spacing: 0.05em;
+      margin: 0 auto 42px;
+      width: 100%;
+      font-weight: bold;
+      @media (max-width: 1024px) {
+        font-size: 28px;
+        margin: 0 auto 30px;
+      }
+    }
+    &__model {
+      display: flex;
+      justify-content: space-between;
+      gap: 0 30px;
+      margin: 0 auto 120px;
+      @media (max-width: 1024px) {
+        margin: 0 auto 60px;
+        flex-wrap: wrap;
+        gap: 30px 0;
+      }
+      &Box {
+        display: flex;
+        flex-wrap: wrap;
+        width: 48%;
+        @media (max-width: 1024px) {
+          width: 100%;
+        }
+        &Image {
+          width: 100%;
+          margin: 0 auto 40px;
+          model-viewer {
+            height: 500px;
+            margin: 0 auto;
+          }
+        }
+      }
+      &Description {
+        width: 48%;
+        @media (max-width: 1024px) {
+          width: 100%;
+        }
+        article {
+          margin: 0 auto 50px;
+          // ウィジウィグ
+          h1 {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 24px;
+          }
+          h2 {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 18px;
+          }
+          h3 {
+            font-size: 21px;
+            margin: 0 auto 14px;
+          }
+          h4 {
+            font-size: 18px;
+            margin: 0 auto 12px;
+          }
+          h5 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 auto 10px;
+          }
+          p {
+            margin: 0 auto 5px;
+            font-size: 15px;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+          }
+          a {
+            color: var(--primary-color);
+            font-size: 14px;
+            border-bottom: 1px solid var(--primary-color);
+          }
+          ul {
+            li {
+              font-size: 15px;
+              line-height: 1.8;
+              letter-spacing: 0.05em;
+              &:not(:last-child) {
+                margin: 0 auto 4px;
+              }
+            }
+          }
+          ol {
+            li {
+              font-size: 15px;
+              line-height: 1.8;
+              letter-spacing: 0.05em;
+              &:not(:last-child) {
+                margin: 0 auto 8px;
+              }
+            }
+          }
+        }
+      }
+      &Date {
+        &List {
+          display: flex;
+          &:not(:last-child) {
+            margin: 0 auto 12px;
+          }
+          dt {
+            margin: 0 10px 0 0;
+            min-width: 130px;
+          }
+        }
+      }
+    }
+    &__movie {
+      width: 100%;
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+    }
+    &__button {
+      margin: 60px auto 0;
+      @media (max-width: 1024px) {
+        margin: 40px auto 0;
+      }
+      &Back {
+        color: var(--white-color);
+        border: 2px solid var(--primary-color);
+        background-color: var(--primary-color);
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        width: 450px;
+        height: 46px;
+        border-radius: 25px;
+        text-align: center;
+        transition: all .3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        @media (max-width: 600px)  {
+          height: 40px;
+          width: 100%;
+          font-size: 14px;
+        }
+        &:hover {
+          color: var(--primary-color);
+          background-color: var(--white-color);
+        }
+      }
+    }
+  }
+}
+
+.c- {
+  // 作品一覧（リスト）
+  &workList {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 60px 27px;
+    @media (max-width: 1024px) {
+      gap: 30px 0;
+      justify-content: space-between;
+    }
+    @media (max-width: 599px) {
+
+    }
+    &__item {
+      display: flex;
+      background-color: #fcfcfc;
+      justify-content: center;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 23%;
+      transition: all .3s;
+      @media (max-width: 1024px) {
+        width: 48%;
+      }
+      &:hover {
+        filter: drop-shadow(2px 2px 16px rgba(208, 214, 223 ,0.6));
+      }
+      &.is-hide {
+        display: none;
+      }
+      &Link {
+        padding: 20px;
+        @media (max-width: 599px) {
+          width: 100%;
+          padding: 20px 15px;
+        }
+      }
+      &Box {
+        margin: 0 auto;
+      }
+      &Title {
+        font-size: 15px;
+        line-height: 1.5;
+        letter-spacing: 0.08em;
+        font-weight: bold;
+        color: var(--text-color);
+        margin: 0 auto 10px;
+        @media (max-width: 600px) {
+          font-size: 13px;
+        }
+      }
+    }
+    &__img {
+      display: block;
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin: 0 auto 16px;
+      @media (max-width: 599px) {
+        width: 100%;
+      }
+    }
+  }
+
+  // 作品一覧（タグ）
+  &tagList {
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+      font-size: 12px;
+      border: 1px solid var(--primary-color);
+      background-color: var(--primary-color);
+      color: var(--white-color);
+      padding: 2px 18px;
+      border-radius: 10px;
+      margin: 0 10px 8px 0;
+      letter-spacing: 0.08em;
+      font-weight: bold;
+    }
+  }
+
+  &pager {
+    margin: 40px auto 0;
+    display: flex;
+    justify-content: center;
+    .bg-primary-500 {
+      background-color: var(--primary-color);
+    }
+  }
+
+  &button {
+    &ScrollTop {
+      background-color: var(--primary-color);
+      color: var(--white-color);
+      border: 2px solid var(--primary-color);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      transition: all .3s;
+      &:hover {
+        color: var(--primary-color);
+        background-color: var(--white-color);
+      }
+    }
+  }
+}
+
+// デザイン
+.p- {
+  &top {
+    &__bg {
+      background: url('/img_bg01.png') no-repeat center center / cover;
+      position: relative;
+      z-index: 10;
+      &::after {
+        content: '';
+        position: absolute;
+        background: rgb(11,37,95);
+        background: linear-gradient(180deg, rgba(11,37,95,1) 80%, rgba(0,0,0,1) 100%);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+.l- {
+  &mv {
+    // height: 950px;
+    // padding: 155px 0 0;
+    height: 100vh;
+    &__wrap {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    &__bg {
+      width: 100%;
+      height: 88vh;
+      object-fit: cover;
+      border-radius: 0 0 50% 50%;
+      object-position: 50% 0%;
+      &-star {
+        &01, &02, &03, &04, &05, &06 {
+          position: absolute;
+        }
+        &01 {
+
+        }
+      }
+    }
+    &__inner {
+      max-width: 1162px;
+      margin: 0 auto;
+      position: relative;
+    }
+    &__logo {
+      width: 464px;
+      height: 482px;
+      margin: 0 auto 60px;
+      display: block;
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+    }
+    &__index {
+      font-size: 48px;
+      margin: 0 auto 20px;
+      font-weight: 700;
+      font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+    }
+    &__text {
+      font-size: 27px;
+      font-family: a-otf-gothic-mb101-pr6n, sans-serif;
+      line-height: 1.58;
+    }
+    &__index, &__text {
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  &experience {
+    padding: 122px 0;
+    position: relative;
+    &__background {
+      background-color: gray;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      &-focus {
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: red;
+        animation: shrinkAndGrow 3s linear 1 alternate;
+        @keyframes shrinkAndGrow {
+          0%, 100% {
+            width: 800px;
+            height: 800px;
+          }
+          50% {
+            width: 150px;
+            height: 150px;
+          }
+        }
+      }
+    }
+    &__star {
+      &01, &02 {
+        position: absolute;
+      }
+      &01 {
+        top: 20%;
+        right: 0;
+      }
+      &02 {
+        bottom: 20%;
+        right: 0;
+      }
+    }
+    &__inner {
+      max-width: 1162px;
+      margin: 0 auto;
+    }
+    &__index {
+      font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      font-size: 48px;
+      margin: 125px auto 52px;
+    }
+    &__movie {
+      &-content {
+        position: relative;
+        video {
+          width: 100%;
+          border-radius: 300px;
+        }
+      }
+      &-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &-text {
+          color: #fff;
+          font-size: 30px;
+          width: 100%;
+          text-align: center;
+          margin: 0 auto 80px;
+        }
+        &-area {
+          width: 42px;
+          height: 42px;
+          background-color: #fff;
+          border-radius: 50%;
+          position: relative;
+          cursor: pointer;
+          &::before, &::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          &:before {
+            width: 88px;
+            height: 88px;
+            background-color: rgba(255, 255, 255 ,0.3);
+          }
+          &:after {
+            width: 138px;
+            height: 138px;
+            background-color: rgba(255, 255, 255 ,0.3);
+          }
+        }
+      }
+    }
+    &__back-button {
+      position: absolute;
+      z-index: 101;
+      background-color: navy;
+      width: 200px;
+      height: 40px;
+      padding: 2px;
+      top: 0;
+      right: 40px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    &__data {
+      opacity: 0;
+      // display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100vh;
+      // z-index: 20;
+      z-index: -1;
+    }
+  }
+
+  &gallery {
+    background: url('/img_gallery_bg01.jpg') no-repeat center center / cover;
+    padding: 0 0 96px;
+    height: 1000px;
+    position: relative;
+    &__index {
+      font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      font-size: 48px;
+      margin: 0 auto 50px;
+    }
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   background: rgb(255,255,255);
+    //   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 33%);
+    //   width: 100%;
+    //   height: 100%;
+    //   top: 0;
+    //   left: 0;
+    //   z-index: -1;
+    //   opacity: 0.8;
+    // }
+    &__category {
+      &List {
+        width: 946px;
+        margin: 0 auto;
+        border: 1px solid #fff;
+        display: flex;
+        justify-content: center;
+        border-radius: 30px;
+      }
+      &Item {
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        width: calc(100% / 3);
+        padding: 6px 0;
+        cursor: pointer;
+        &:not(:last-child) {
+          border-right: 1px solid #fff;
+        }
+        &.is-current {
+          background-color: #fff;
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+.iframeOpacity {
+  // display: block;
+  opacity: 1;
+  z-index: 100;
+}
