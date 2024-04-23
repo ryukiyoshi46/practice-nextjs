@@ -8,12 +8,21 @@ import Image from 'next/image'
 export default function TestPage() {
   const [isIframeOpacityActive, setIsIframeOpacityActive] = useState(false);
   const [bodyNoScroll, setBodyNoScroll] = useState(false);
+  const [isDisplayBackground01, setIsDisplayBackground01] = useState(false);
   const [isDisplayBackground02, setIsDisplayBackground02] = useState(false);
   const [idDisplayBackToTopButton, setIdDisplayBackToTopButton] = useState(false);
   const [galleryZIndex, setGalleryZIndex] = useState(10);
 
+  // ページ遷移するパターン
+  // const handleMoveToMatterPort = () => {
+  //   setIsDisplayBackground01(true);
+  //   setBodyNoScroll(true);
+  //   setTimeout(() => {
+  //     window.location.href = "https://my.matterport.com/show/?m=JVuiBtyUPoW&qs=1"
+  //   }, 3000)
+  // }
+
   const handleOpenMatterPort = () => {
-    console.log('その場でmatterport開くパターン tap');
     setIsDisplayBackground02(true);
     setBodyNoScroll(true);
     setTimeout(() => {
@@ -21,7 +30,6 @@ export default function TestPage() {
       setIsDisplayBackground02(false);
       setIdDisplayBackToTopButton(true);
       setGalleryZIndex(-1);
-      // document.querySelector('.l-gallery').style.zIndex = -1;
     }, 3000);
   };
 
@@ -55,7 +63,7 @@ export default function TestPage() {
           </div>
           <div className="l-mv__inner">
             <img src="/img_logo01.svg" alt="" className="l-mv__logo" />
-            <h1 className="l-mv__index">堂平天文台 デジタルMUSEUMへようこそ</h1>
+            <h1 className="l-mv__index">next.js実装　堂平天文台 デジタルMUSEUMへようこそ</h1>
             <p className="l-mv__text">昭和37年以来、観測所として日本の天文学を支えてきた「堂平観測所ドーム」。<br/>
               その魅力を臨場感のあるデジタルMUSEUMとして体感いただけます。
             </p>
@@ -93,6 +101,26 @@ export default function TestPage() {
           </iframe>
 
         </section>
+
+        {/* <section class="l-experience">
+          <div class="l-experience__inner">
+            <h2 class="l-experience__index">360度の堂平天文台ドームを<br />体験してみよう</h2>
+            <h2 class="l-experience__index">ページ遷移するパターン</h2>
+
+            <div class="l-experience__movie">
+              <div class="l-experience__movie-content">
+                <video class="detail-custom" id="product-clip__video-player_html5" preload="auto" autoPlay muted loop playsInline>
+                  <source src="/movie01.mp4" type="video/mp4" />
+                </video>
+                <div class="l-experience__movie-button" onClick={handleMoveToMatterPort}>
+                  <p class="l-experience__movie-button-text">TAP</p>
+                  <button class="l-experience__movie-button-area"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
+
       </div>
 
       <section className="l-gallery" style={{ zIndex: galleryZIndex }}>
@@ -107,6 +135,11 @@ export default function TestPage() {
       </section>
       
       { isDisplayBackground02 &&
+        <div v-if="isDisplayBackground02" className="l-experience__background">
+          <p style={{ fontSize: '30px', textAlign: 'center', margin: '80px auto 0' }}>(仮) 円が収縮するアニメーション</p>
+        </div>
+      }
+      { isDisplayBackground01 &&
         <div v-if="isDisplayBackground02" className="l-experience__background">
           <p style={{ fontSize: '30px', textAlign: 'center', margin: '80px auto 0' }}>(仮) 円が収縮するアニメーション</p>
         </div>

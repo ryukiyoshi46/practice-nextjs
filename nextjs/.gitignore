@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+/public/movie01.mp4
+/public/img_*
 
 # testing
 /coverage
