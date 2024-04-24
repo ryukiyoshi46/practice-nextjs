@@ -3,7 +3,7 @@
     "category01": [
       {
         "name": "観測装置パート1",
-        "id": 1,
+        "id": 100,
         "date": "2024-03-03",
         "explanation": "詳細説明です。",
         "imgPath01": "/img_dummy01.jpg",
@@ -14,7 +14,7 @@
       },
       {
         "name": "観測装置パート2",
-        "id": 2,
+        "id": 101,
         "date": "2024-05-03",
         "explanation": "詳細説明です。説明が入ります。",
         "imgPath01": "/img_dummy01.png",
@@ -25,7 +25,7 @@
       },
       {
         "name": "観測装置パート3",
-        "id": 3,
+        "id": 102,
         "date": "2024-05-03",
         "explanation": "詳細説明です。説明が入ります。",
         "imgPath01": "/img_dummy02.jpg",
@@ -38,7 +38,7 @@
     "category02": [
       {
         "name": "望遠鏡1",
-        "id": 1,
+        "id": 200,
         "date": "2024-11-03",
         "explanation": "望遠鏡の詳細説明です。",
         "imgPath01": "/img_dummy01.jpg",
@@ -49,7 +49,7 @@
       },
       {
         "name": "望遠鏡2",
-        "id": 2,
+        "id": 201,
         "date": "2024-05-13",
         "explanation": "望遠鏡の詳細説明です。説明が入ります。",
         "imgPath01": "/img_dummy02.jpg",
@@ -60,7 +60,7 @@
       },
       {
         "name": "望遠鏡3",
-        "id": 3,
+        "id": 202,
         "date": "2024-05-23",
         "explanation": "望遠鏡の詳細説明です。説明が入ります。",
         "imgPath01": "/img_dummy01.jpg",
@@ -73,18 +73,18 @@
     "category03": [
       {
         "name": "カテゴリー3の装置1",
-        "id": 1,
+        "id": 300,
         "date": "2024-11-03",
         "explanation": "カテゴリー3の装置カテゴリー3の装置カテゴリー3の装置",
-        "imgPath01": "/",
-        "imgPath02": "/",
-        "imgPath03": "/",
-        "imgPath04": "/",
+        "imgPath01": "/img_dummy03.jpg",
+        "imgPath02": "/img_dummy05.jpg",
+        "imgPath03": "/img_dummy02.jpg",
+        "imgPath04": "/img_dummy01.jpg",
         "imgPath05": "/"
       },
       {
         "name": "カテゴリー3の装置2",
-        "id": 2,
+        "id": 301,
         "date": "2024-05-13",
         "explanation": "説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。",
         "imgPath01": "/img_dummy05.jpg",
@@ -95,7 +95,7 @@
       },
       {
         "name": "カテゴリー3の装置3",
-        "id": 3,
+        "id": 302,
         "date": "2024-05-23",
         "explanation": "説明文がここに入ります。説明文がここに入ります。",
         "imgPath01": "/img_dummy04.jpg",
