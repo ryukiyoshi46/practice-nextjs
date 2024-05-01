@@ -17,6 +17,7 @@ export const Gallery = () => {
   const [currentCategory, setCurrentCategory] = useState('category01');
   const [galleryItems, setGalleryItems] = useState([]);
 
+  // カテゴリーの切り替え
   useEffect(() => {
     if(galleryData.categories[currentCategory]) {
       setGalleryItems(galleryData.categories[currentCategory])
@@ -30,23 +31,25 @@ export const Gallery = () => {
   // Swiper設定
   const slideSettings = {
     0: {
-      slidesPerView: 1,
+      slidesPerView: 1.5,
       spaceBetween: 0,
     },
     1024: {
       slidesPerView: 2,
-      spaceBetween: 0,
+      spaceBetween: 10,
     },
   };
 
   return (
-    <div className="l-gallery__category">
+    <div>
 
-      <ul className="l-gallery__categoryList">
-        <li className="l-gallery__categoryItem" onClick={() => handleCategoryClick('category01')}>観測装置１</li>
-        <li className="l-gallery__categoryItem" onClick={() => handleCategoryClick('category02')}>91㎝反射望遠鏡</li>
-        <li className="l-gallery__categoryItem" onClick={() => handleCategoryClick('category03')}>観測装置２</li>
-      </ul>
+      <div className="l-gallery__category">
+        <ul className="l-gallery__categoryList">
+          <li className={`l-gallery__categoryItem ${currentCategory === 'category01' ? 'is-current' : ''}`} onClick={() => handleCategoryClick('category01')}>観測装置１</li>
+          <li className={`l-gallery__categoryItem ${currentCategory === 'category02' ? 'is-current' : ''}`} onClick={() => handleCategoryClick('category02')}>91㎝反射望遠鏡</li>
+          <li className={`l-gallery__categoryItem ${currentCategory === 'category03' ? 'is-current' : ''}`} onClick={() => handleCategoryClick('category03')}>観測装置２</li>
+        </ul>
+      </div>
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
@@ -57,7 +60,6 @@ export const Gallery = () => {
         loop
         speed={1000}
         navigation
-        parallax={true}
         initialSlide="1"
         effect={'coverflow'}
         coverflowEffect={{
@@ -79,7 +81,7 @@ export const Gallery = () => {
               <img src="/img_slider_shadow01.png" alt="" className="l-gallery__sliderShadow" />
             </div>
             <h3 className="l-gallery__sliderName">{galleryItem.name}</h3>
-            <Button hrefURL={`/test/${galleryItem.id}`} addClasses={"l-gallery__sliderButton"}>詳細を見る</Button>
+            <Button hrefURL={`/${galleryItem.id}`} addClasses={"l-gallery__sliderButton"}>詳細を見る</Button>
           </SwiperSlide>
         ))}
       </Swiper>
