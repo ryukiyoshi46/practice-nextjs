@@ -28,12 +28,10 @@ export default function DetailPage () {
     }
   })
 
+  // クリックした画像をメインに表示
   const [mainImage, setMainImage] = useState(currentPageData.imgPath01)
   const handleChangeMainImage = (e) => {
-    console.log(e);
-    console.log(e.target.src);
     setMainImage(e.target.src)
-    console.log('click')
   }
 
   return (
@@ -46,21 +44,16 @@ export default function DetailPage () {
             <div className="p-detailPageContents__img">
               <img src={mainImage} alt="メイン画像" className="p-detailPageContents__imgMain" />
               <ul className="p-detailPageContents__imgList">
-                { currentPageData.imgPath01 && (
-                  <li className="p-detailPageContents__imgItem"><img src={`${currentPageData.imgPath01}`} alt="メイン画像" className="" onClick={handleChangeMainImage} /></li>
-                )}
-                { currentPageData.imgPath02 && (
-                  <li className="p-detailPageContents__imgItem"><img src={`${currentPageData.imgPath02}`} alt="メイン画像" className="" onClick={handleChangeMainImage} /></li>
-                )}
-                { currentPageData.imgPath03 && (
-                  <li className="p-detailPageContents__imgItem"><img src={`${currentPageData.imgPath03}`} alt="メイン画像" className="" onClick={handleChangeMainImage} /></li>
-                )}
-                { currentPageData.imgPath04 && (
-                  <li className="p-detailPageContents__imgItem"><img src={`${currentPageData.imgPath04}`} alt="メイン画像" className="" onClick={handleChangeMainImage} /></li>
-                )}
-                { currentPageData.imgPath05 && (
-                  <li className="p-detailPageContents__imgItem"><img src={`${currentPageData.imgPath05}`} alt="メイン画像" className="" onClick={handleChangeMainImage} /></li>
-                )}
+                {Object.keys(currentPageData).map((key, index) => {
+                  if (key.startsWith('imgPath')) {
+                    return (
+                      <li key={index} className="p-detailPageContents__imgItem">
+                        <img src={currentPageData[key]} alt="メイン画像" onClick={handleChangeMainImage} />
+                      </li>
+                    )
+                  }
+                  return null
+                })}
               </ul>
             </div>
             <div className="p-detailPageContents__explain">
