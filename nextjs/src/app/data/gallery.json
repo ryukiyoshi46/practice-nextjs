@@ -1,109 +1,154 @@
 {
-  "categories": {
-    "category01": [
-      {
-        "name": "観測装置パート1",
-        "id": 100,
-        "date": "2024-03-03",
-        "explanation": "詳細説明です。",
-        "imgPath01": "/img_dummy01.jpg",
-        "imgPath02": "/img_dummy01.png",
-        "imgPath03": "/img_dummy01.jpg",
-        "imgPath04": "/img_dummy02.png",
-        "imgPath05": ""
-      },
-      {
-        "name": "観測装置パート2",
-        "id": 101,
-        "date": "2024-05-03",
-        "explanation": "詳細説明です。説明が入ります。",
-        "imgPath01": "/img_dummy01.png",
-        "imgPath02": "/img_dummy02.png",
-        "imgPath03": "/img_dummy03.png",
-        "imgPath04": "",
-        "imgPath05": ""
-      },
-      {
-        "name": "観測装置パート3",
-        "id": 102,
-        "date": "2024-05-03",
-        "explanation": "詳細説明です。説明が入ります。",
-        "imgPath01": "/img_dummy02.jpg",
-        "imgPath02": "/img_dummy01.jpg",
-        "imgPath03": "/img_dummy03.jpg",
-        "imgPath04": "/",
-        "imgPath05": "/"
-      }
-    ],
-    "category02": [
-      {
-        "name": "望遠鏡1",
-        "id": 200,
-        "date": "2024-11-03",
-        "explanation": "望遠鏡の詳細説明です。",
-        "imgPath01": "/img_dummy01.jpg",
-        "imgPath02": "/img_dummy02.jpg",
-        "imgPath03": "/img_dummy03.jpg",
-        "imgPath04": "/",
-        "imgPath05": "/"
-      },
-      {
-        "name": "望遠鏡2",
-        "id": 201,
-        "date": "2024-05-13",
-        "explanation": "望遠鏡の詳細説明です。説明が入ります。",
-        "imgPath01": "/img_dummy02.jpg",
-        "imgPath02": "/img_dummy03.jpg",
-        "imgPath03": "/img_dummy01.jpg",
-        "imgPath04": "/",
-        "imgPath05": "/"
-      },
-      {
-        "name": "望遠鏡3",
-        "id": 202,
-        "date": "2024-05-23",
-        "explanation": "望遠鏡の詳細説明です。説明が入ります。",
-        "imgPath01": "/img_dummy01.jpg",
-        "imgPath02": "/img_dummy02.jpg",
-        "imgPath03": "/img_dummy03.jpg",
-        "imgPath04": "/",
-        "imgPath05": "/"
-      }
-    ],
-    "category03": [
-      {
-        "name": "カテゴリー3の装置1",
-        "id": 300,
-        "date": "2024-11-03",
-        "explanation": "カテゴリー3の装置カテゴリー3の装置カテゴリー3の装置",
-        "imgPath01": "/img_dummy03.jpg",
-        "imgPath02": "/img_dummy05.jpg",
-        "imgPath03": "/img_dummy02.jpg",
-        "imgPath04": "/img_dummy01.jpg",
-        "imgPath05": "/"
-      },
-      {
-        "name": "カテゴリー3の装置2",
-        "id": 301,
-        "date": "2024-05-13",
-        "explanation": "説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。",
-        "imgPath01": "/img_dummy05.jpg",
-        "imgPath02": "/img_dummy04.jpg",
-        "imgPath03": "/img_dummy01.jpg",
-        "imgPath04": "/img_dummy02.jpg",
-        "imgPath05": "/img_dummy03.jpg"
-      },
-      {
-        "name": "カテゴリー3の装置3",
-        "id": 302,
-        "date": "2024-05-23",
-        "explanation": "説明文がここに入ります。説明文がここに入ります。",
-        "imgPath01": "/img_dummy04.jpg",
-        "imgPath02": "/img_dummy02.jpg",
-        "imgPath03": "/img_dummy01.jpg",
-        "imgPath04": "/img_dummy03.jpg",
-        "imgPath05": "/"
-      }
-    ]
-  }
+  "categories": [
+    {
+      "categoryName": "category01",
+      "categoryLabel": "カテゴリー名",
+      "data": [
+        {
+          "name": "観測装置パート1",
+          "id": 100,
+          "date": "2024-03-03",
+          "explanation": "詳細説明です。",
+          "imgPath01": "/img_dummy01.jpg",
+          "imgPath02": "/img_dummy01.png",
+          "imgPath03": "/img_dummy01.jpg",
+          "imgPath04": "/img_dummy02.png",
+          "imgPath05": ""
+        },
+        {
+          "name": "観測装置パート2",
+          "id": 101,
+          "date": "2024-05-03",
+          "explanation": "詳細説明です。説明が入ります。",
+          "imgPath01": "/img_dummy01.png",
+          "imgPath02": "/img_dummy02.png",
+          "imgPath03": "/img_dummy03.png",
+          "imgPath04": "",
+          "imgPath05": ""
+        },
+        {
+          "name": "観測装置パート3",
+          "id": 102,
+          "date": "2024-05-03",
+          "explanation": "詳細説明です。説明が入ります。",
+          "imgPath01": "/img_dummy02.jpg",
+          "imgPath02": "/img_dummy01.jpg",
+          "imgPath03": "/img_dummy03.jpg",
+          "imgPath04": "/",
+          "imgPath05": "/"
+        },
+        {
+          "name": "観測装置パート4",
+          "id": 103,
+          "date": "2024-05-03",
+          "explanation": "詳細説明です。説明が入ります。",
+          "imgPath01": "/img_dummy02.jpg",
+          "imgPath02": "/img_dummy01.jpg",
+          "imgPath03": "/img_dummy03.jpg",
+          "imgPath04": "/",
+          "imgPath05": "/"
+        }
+      ]
+    },
+    {
+      "categoryName": "category02",
+      "categoryLabel": "カテゴリー名2",
+      "data": [
+        {
+          "name": "望遠鏡1",
+          "id": 200,
+          "date": "2024-11-03",
+          "explanation": "望遠鏡の詳細説明です。",
+          "imgPath01": "/img_dummy01.jpg",
+          "imgPath02": "/img_dummy02.jpg",
+          "imgPath03": "/img_dummy03.jpg",
+          "imgPath04": "/",
+          "imgPath05": "/"
+        },
+        {
+          "name": "望遠鏡2",
+          "id": 201,
+          "date": "2024-05-13",
+          "explanation": "望遠鏡の詳細説明です。説明が入ります。",
+          "imgPath01": "/img_dummy02.jpg",
+          "imgPath02": "/img_dummy03.jpg",
+          "imgPath03": "/img_dummy01.jpg",
+          "imgPath04": "/",
+          "imgPath05": "/"
+        },
+        {
+          "name": "望遠鏡3",
+          "id": 202,
+          "date": "2024-05-23",
+          "explanation": "望遠鏡の詳細説明です。説明が入ります。",
+          "imgPath01": "/img_dummy01.jpg",
+          "imgPath02": "/img_dummy02.jpg",
+          "imgPath03": "/img_dummy03.jpg",
+          "imgPath04": "/",
+          "imgPath05": "/"
+        },
+        {
+          "name": "望遠鏡4",
+          "id": 203,
+          "date": "2024-04-23",
+          "explanation": "望遠鏡の詳細説明です。説明が入ります。望遠鏡の詳細説明です。説明が入ります。望遠鏡の詳細説明です。説明が入ります。",
+          "imgPath01": "/img_dummy01.jpg",
+          "imgPath02": "/img_dummy02.jpg",
+          "imgPath03": "/img_dummy03.jpg",
+          "imgPath04": "/",
+          "imgPath05": "/"
+        }
+      ]
+    },
+    {
+      "categoryName": "category03",
+      "categoryLabel": "カテゴリー名3",
+      "data": [
+        {
+          "name": "カテゴリー3の装置1",
+          "id": 300,
+          "date": "2024-11-03",
+          "explanation": "カテゴリー3の装置カテゴリー3の装置カテゴリー3の装置",
+          "imgPath01": "/img_dummy03.jpg",
+          "imgPath02": "/img_dummy05.jpg",
+          "imgPath03": "/img_dummy02.jpg",
+          "imgPath04": "/img_dummy01.jpg",
+          "imgPath05": "/"
+        },
+        {
+          "name": "カテゴリー3の装置2",
+          "id": 301,
+          "date": "2024-05-13",
+          "explanation": "説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。説明文がここに入ります。",
+          "imgPath01": "/img_dummy05.jpg",
+          "imgPath02": "/img_dummy04.jpg",
+          "imgPath03": "/img_dummy01.jpg",
+          "imgPath04": "/img_dummy02.jpg",
+          "imgPath05": "/img_dummy03.jpg"
+        },
+        {
+          "name": "カテゴリー3の装置3",
+          "id": 302,
+          "date": "2024-05-23",
+          "explanation": "説明文がここに入ります。説明文がここに入ります。",
+          "imgPath01": "/img_dummy04.jpg",
+          "imgPath02": "/img_dummy02.jpg",
+          "imgPath03": "/img_dummy01.jpg",
+          "imgPath04": "/img_dummy03.jpg",
+          "imgPath05": "/"
+        },
+        {
+          "name": "カテゴリー3の装置4",
+          "id": 303,
+          "date": "2024-05-23",
+          "explanation": "説明文がここに入ります。説明文がここに入ります。",
+          "imgPath01": "/img_dummy04.jpg",
+          "imgPath02": "/img_dummy02.jpg",
+          "imgPath03": "/img_dummy01.jpg",
+          "imgPath04": "/img_dummy03.jpg",
+          "imgPath05": "/"
+        }
+      ]
+    }
+  ]
 }
