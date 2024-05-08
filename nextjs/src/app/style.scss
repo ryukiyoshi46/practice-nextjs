@@ -7,94 +7,296 @@ body {
 
   // ヘッダー
   &header {
-    padding: 20px 40px;
-    filter: drop-shadow(3px 3px 8px rgba(208, 214, 223 ,0.6));
-    background-color: #f8f8f8;
-    border-radius: 40px;
-    position: fixed;
-    z-index: 10;
-    width: calc(100% - 80px);
-    left: 50%;
-    top: 20px;
-    z-index: 12;
-    transform: translateX(-50%);
-    @media (max-width: 1024px) {
-      padding: 14px 18px;
-      width: calc(100% - 40px);
-    }
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
+    // 通常のヘッダー
+    &01 {
+      max-width: 1800px;
       width: 100%;
-      height: 100%;
-      border-radius: 50px;
-      box-shadow: -3px -3px 4px #fff;
-      //background: #fff;
-    }
-    &__inner {
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-    }
-    &__index {
-      display: flex;
-      align-items: center;
-    }
-    &__title {
-      font-weight: bold;
-      font-size: 18px;
-      @media (max-width: 1024px) {
-        font-size: 15px;
+      padding: 0 60px;
+      position: fixed;
+      top: 20px;
+      z-index: 50;
+      @media screen and (max-width: 1023px) {
+        top: 13px;
+        padding: 0 30px;
       }
-    }
-    &__logo {
-      margin: 0 20px 0 0;
-      @media (max-width: 1024px) {
-        width: 100px;
+      @media screen and (max-width: 599px) {
+        padding: 0 20px;
       }
-      @media (max-width: 600px) {
-        margin: 0 15px 0 0;
+      &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-    }
-    &__lang {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      &Item {
-        font-weight: bold;
-        @media (max-width: 600px) {
-          font-size: 13px;
-        }
-        &::before {
-          font-weight: normal;
-        }
-        &:last-child {
-          padding: 0 0 0 18px;
-          position: relative;
-          @media (max-width: 600px) {
-            padding: 0 0 0 10px;
+      &__logo {
+        &Link {
+          transition: all .3s;
+          &:hover {
+            opacity: .8;
           }
-          &::before {
-            content: '/';
-            position: absolute;
-            top: 50%;
-            left: 8px;
-            transform: translateY(-50%);
-            font-size: 10px;
-            @media (max-width: 600px) {
-              left: 4px;
+        }
+        &Img {
+          width: 69px;
+          height: 72px;
+          @media screen and (max-width: 1023px) {
+            width: 31px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+          }
+        }
+      }
+      // ハンバーガーメニュー
+      &__button {
+        display: none;
+        @media screen and (max-width: 1023px) {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          position: fixed;
+          top: 0;
+          right: 43px;
+        }
+        span {
+          width: 24px;
+          height: 2px;
+          border-radius: 4px;
+          position: absolute;
+          background-color: #fff;
+          &:nth-child(1) {
+            top: 19px;
+          }
+          &:nth-child(2) {
+            top: 29px;
+          }
+          &:nth-child(3) {
+            top: 40px;
+          }
+        }
+        &.is-active {
+          span {
+            width: 33px;
+            &:nth-child(1) {
+              transform: rotate(45deg);
+              top: 30px;
+            }
+            &:nth-child(2) {
+              transform: rotate(-45deg);
+              top: 30px;
+            }
+            &:nth-child(3) {
+              display: none;
             }
           }
         }
       }
-      &Link {
-        transition: all .3s;
-        &:hover {
-          color: var(--primary-color);
+      &__menu {
+        @media screen and (max-width: 1023px) {
+          pointer-events: none;
+          opacity: 0;
+          background: url('/img_bg01.png') no-repeat center center / cover;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          position: fixed;
+          transition: all .35s;
+          &.is-active {
+            opacity: 1;
+            pointer-events: unset;
+          }
+        }
+        &List {
+          display: flex;
+          align-items: center;
+          @media screen and (max-width: 1023px) {
+            // tab,spではハンバーガーメニュー
+            padding: 125px 0 0;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+              background: rgb(11, 37, 95);
+              background: linear-gradient(180deg, rgba(11, 37, 95, 0.36) 2%, rgba(11, 37, 95, 0.59) 18%, rgb(11, 37, 95) 42%, rgb(0, 0, 0) 100%);
+            }
+          }
+        }
+        &Item {
+          @media screen and (max-width: 1023px) {
+            width: 100%;
+          }
+          &:first-child {
+            margin: 0 66px 0 0;
+            @media screen and (max-width: 1023px) {
+              margin: 0;
+              padding: 24px 0;
+            }
+          }
+          &:nth-child(2) {
+            margin: 0 80px 0 0;
+            @media screen and (max-width: 1023px) {
+              margin: 0 auto 46px;
+              padding: 24px 0;
+            }
+          }
+          &:last-child {
+            @media screen and (max-width: 1023px) {
+              padding: 0 35px;
+            }
+          }
+          &:first-child, &:nth-child(2) {
+            font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+            @media screen and (max-width: 1023px) {
+              border-bottom: 1px solid #fff;
+              width: 100%;
+              text-align: center;
+              font-weight: bold;
+            }
+          }
+        }
+        &Link {
+          color: #fff;
+          font-size: 30px;
+          font-weight: 500;
+          @media screen and (max-width: 1023px) {
+            font-size: 22px;
+          }
+        }
+        &Button {
+          width: 166px;
+          border: 2px solid #fff;
+          border-radius: 130px;
+          color: #fff;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 600;
+          text-align: center;
+          line-height: 1.35;
+          padding: 5px 0;
+          @media screen and (max-width: 1023px) {
+            width: 400px;
+            height: 60px;
+            font-size: 20px;
+            margin: 0 auto;
+            position: relative;
+          }
+          @media screen and (max-width: 599px) {
+            width: 100%;
+          }
+          &::after {
+            @media screen and (max-width: 1023px) {
+              content: url('/icon_arrow01.svg');
+              width: 24px;
+              height: 24px;
+              position: absolute;
+              right: 22px;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+    }
+    // リストページ用のヘッダー
+    &02 {
+      padding: 20px 40px;
+      filter: drop-shadow(3px 3px 8px rgba(208, 214, 223 ,0.6));
+      background-color: #f8f8f8;
+      border-radius: 40px;
+      position: fixed;
+      z-index: 10;
+      width: calc(100% - 80px);
+      left: 50%;
+      top: 20px;
+      z-index: 12;
+      transform: translateX(-50%);
+      @media (max-width: 1024px) {
+        padding: 14px 18px;
+        width: calc(100% - 40px);
+      }
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+        box-shadow: -3px -3px 4px #fff;
+        //background: #fff;
+      }
+      &__inner {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      &__index {
+        display: flex;
+        align-items: center;
+      }
+      &__title {
+        font-weight: bold;
+        font-size: 18px;
+        @media (max-width: 1024px) {
+          font-size: 15px;
+        }
+      }
+      &__logo {
+        margin: 0 20px 0 0;
+        @media (max-width: 1024px) {
+          width: 100px;
+        }
+        @media (max-width: 600px) {
+          margin: 0 15px 0 0;
+        }
+      }
+      &__lang {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &Item {
+          font-weight: bold;
+          @media (max-width: 600px) {
+            font-size: 13px;
+          }
+          &::before {
+            font-weight: normal;
+          }
+          &:last-child {
+            padding: 0 0 0 18px;
+            position: relative;
+            @media (max-width: 600px) {
+              padding: 0 0 0 10px;
+            }
+            &::before {
+              content: '/';
+              position: absolute;
+              top: 50%;
+              left: 8px;
+              transform: translateY(-50%);
+              font-size: 10px;
+              @media (max-width: 600px) {
+                left: 4px;
+              }
+            }
+          }
+        }
+        &Link {
+          transition: all .3s;
+          &:hover {
+            color: var(--primary-color);
+          }
         }
       }
     }
@@ -102,13 +304,34 @@ body {
 
   // フッター
   &footer {
-    background-color: var(--primary-color);
-    padding: 40px 20px;
-    &Text {
+    // 通常のヘッダー
+    &01 {
+      background-color: #fff;
+      padding: 30px;
       text-align: center;
-      color: var(--white-color);
-      font-size: 13px;
-      letter-spacing: 0.08em;
+      position: relative;
+      z-index: 10;
+      @media screen and (max-width: 599px) {
+        padding: 20px;
+      }
+      &__logo {
+        width: 225px;
+        height: auto;
+        @media screen and (max-width: 599px) {
+          width: 102px;
+        }
+      }
+    }
+    // リストページ用のヘッダー
+    &02 {
+      background-color: var(--primary-color);
+      padding: 40px 20px;
+      &Text {
+        text-align: center;
+        color: var(--white-color);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+      }
     }
   }
 
@@ -364,6 +587,118 @@ body {
 .p- {
 
   // 作品詳細
+  &detailPage {
+    background: url('/img_bg01.png') no-repeat center center / cover;
+    &Contents {
+      padding: 194px 0 134px;
+      position: relative;
+      z-index: 1;
+      @media screen and (max-width: 1023px) {
+        padding: 90px 0 50px;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: rgb(11,37,95);
+        background: linear-gradient(180deg, rgba(11,37,95,0.36) 2%, rgba(11,37,95,0.59) 18%, rgba(11,37,95,1) 42%, rgba(0,0,0,1) 100%);
+      }
+      &__inner {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 0 85px;
+        @media screen and (max-width: 1023px) {
+          flex-wrap: wrap;
+          gap: 32px 0;
+        }
+      }
+      &__img {
+        width: 570px;
+        @media screen and (max-width: 1023px) {
+          width: 100%;
+          padding: 0 65px;
+        }
+        &Main {
+          width: 100%;
+          margin: 0 auto 28px;
+        }
+        &List {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 0 17px;
+          @media screen and (max-width: 1023px) {
+            gap: 0 8px;
+          }
+        }
+        &Item {
+          width: 20%;
+          @media screen and (max-width: 1023px) {
+            width: 23%;
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+      &__explain {
+        width: calc(100% - 600px);
+        @media screen and (max-width: 1023px) {
+          width: 100%;
+        }
+        &Category {
+          font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+          color: #fff;
+          font-size: 30px;
+          border-bottom: 3px solid #fff;
+          margin: 0 auto 27px;
+          display: inline-block;
+          @media screen and (max-width: 1023px) {
+            font-size: 18px;
+            display: table;
+            margin: 0 auto 18px;
+          }
+          @media screen and (max-width: 599px) {
+            font-size: 12px;
+          }
+        }
+        &Name {
+          font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+          color: #fff;
+          font-size: 48px;
+          margin: 0 auto 27px;
+          @media screen and (max-width: 1023px) {
+            text-align: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+          }
+          @media screen and (max-width: 599px) {
+            font-size: 22px;
+          }
+        }
+        &Text {
+          color: #fff;
+          font-size: 20px;
+          line-height: 2;
+          @media screen and (max-width: 1023px) {
+            font-size: 16px;
+          }
+          @media screen and (max-width: 599px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  // リスト用作品詳細
   &workDetail {
     &__title {
       font-size: 32px;
@@ -616,6 +951,17 @@ body {
   }
 
   &button {
+    &01 {
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 22px;
+      border-radius: 100px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
     &ScrollTop {
       background-color: var(--primary-color);
       color: var(--white-color);
@@ -645,49 +991,82 @@ body {
       background: url('/img_bg01.png') no-repeat center center / cover;
       position: relative;
       z-index: 10;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &::before {
+        background: url('/img_bg_star01.png') no-repeat center center / cover;
+        background-attachment: fixed;
+        z-index: 0;
+        opacity: 0;
+        animation: fadeInStarBackgroundOpacity 1s ease-out .6s forwards;
+        @media screen and (max-width: 1300px) {
+          background-size: contain;
+        }
+        @keyframes fadeInStarBackgroundOpacity {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 1;
+          }
+        }
+      }
       &::after {
         content: '';
         position: absolute;
         background: rgb(11,37,95);
         background: linear-gradient(180deg, rgba(11,37,95,1) 80%, rgba(0,0,0,1) 100%);
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
         z-index: -1;
         opacity: 0.8;
       }
     }
   }
 }
+
 .l- {
   &mv {
-    // height: 950px;
-    // padding: 155px 0 0;
     height: 100vh;
     &__wrap {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
+      padding: 155px 0 0;
+      position: relative;
     }
     &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 88vh;
+      height: 100vh;
       object-fit: cover;
       border-radius: 0 0 50% 50%;
       object-position: 50% 0%;
+      @media screen and (max-width: 599px) {
+        border-radius: 0 0 180px 180px;
+        height: 95vh;
+      }
       &-star {
-        &01, &02, &03, &04, &05, &06 {
-          position: absolute;
-        }
         &01 {
-
+          bottom: -211px;
+          left: -14px;
+          position: absolute;
+          @media screen and (max-width: 1023px) {
+            transform: scale(0.4);
+          }
+          @media screen and (max-width: 599px) {
+            transform: scale(0.2);
+          }
         }
+
       }
     }
     &__inner {
-      max-width: 1162px;
+      // max-width: 1202px;
+      padding: 0 20px;
       margin: 0 auto;
       position: relative;
     }
@@ -696,31 +1075,118 @@ body {
       height: 482px;
       margin: 0 auto 60px;
       display: block;
-      // position: absolute;
-      // top: 50%;
-      // left: 50%;
-      // transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: fadeInStarBackgroundOpacity 1.2s ease-out .8s forwards;
+      @keyframes fadeInStarBackgroundOpacity {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+      }
+      @media screen and (max-width: 1023px) {
+        width: 300px;
+        height: auto;
+      }
+      @media screen and (max-width: 599px) {
+        width: 219px;
+        height: 228px;
+      }
+    }
+    &__index, &__text {
+      opacity: 0;
+      animation: fadeInStarBackgroundOpacity 1.4s ease-out 1.4s forwards;
+      @keyframes fadeInStarBackgroundOpacity {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+      }
     }
     &__index {
       font-size: 48px;
       margin: 0 auto 20px;
       font-weight: 700;
       font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+      @media screen and (max-width: 1023px) {
+        font-size: 32px;
+      }
+      @media screen and (max-width: 599px) {
+        font-size: 22px;
+      }
     }
     &__text {
       font-size: 27px;
       font-family: a-otf-gothic-mb101-pr6n, sans-serif;
       line-height: 1.58;
+      @media screen and (max-width: 1023px) {
+        font-size: 16px;
+        line-height: 1.64;
+      }
+      @media screen and (max-width: 599px) {
+        font-size: 14px;
+      }
     }
     &__index, &__text {
       color: #fff;
       text-align: center;
     }
+    &__scroll {
+      position: absolute;
+      right: 44px;
+      top: 28%;
+      @media screen and (max-width: 1023px) {
+
+      }
+      @media screen and (max-width: 599px) {
+        display: none;
+      }
+      &:before, &:after {
+        content: '';
+      }
+      &:before {
+        position: absolute;
+        height: 115px;
+        width: 2.5px;
+        background-color: #fff;
+        right: 26px;
+        bottom: -144px;
+      }
+      &:after {
+        width: 10px;
+        height: 10px;
+        border: 0;
+        border-bottom: solid 2.5px #fff;
+        border-left: solid 2.5px #fff;
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 0;
+        left: 26px;
+        bottom: -316px;
+        margin: auto;
+      }
+      &Text {
+        font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+        color: #fff;
+        font-size: 25px;
+        transform: rotate(-90deg);
+        position: relative;
+      }
+    }
   }
 
   &experience {
-    padding: 122px 0;
+    padding: 132px 0 122px;
     position: relative;
+    @media screen and (max-width: 1023px) {
+      padding: 76px 0 57px;
+    }
+    @media screen and (max-width: 599px) {
+
+    }
     &__background {
       background-color: gray;
       width: 100%;
@@ -750,21 +1216,46 @@ body {
       }
     }
     &__star {
-      &01, &02 {
+      &01, &02, &03, &04, &05 {
         position: absolute;
+        @media screen and (max-width: 1023px) {
+          transform: scale(0.4);
+        }
+        @media screen and (max-width: 599px) {
+          transform: scale(0.2);
+        }
       }
       &01 {
         top: 20%;
         right: 0;
+        @media screen and (max-width: 1023px) {
+          top: -126px;
+          right: -67px;
+        }
       }
       &02 {
-        bottom: 20%;
-        right: 0;
+        bottom: 0;
+        right: 74px;
+      }
+      &03 {
+        left: 156px;
+        top: 127px;
+        @media screen and (max-width: 1023px) {
+          display: none;
+        }
+      }
+      &04 {
+        right: 60px;
+      }
+      &05 {
+        bottom: 33px;
+        left: -6px;
       }
     }
     &__inner {
-      max-width: 1162px;
+      max-width: 1202px;
       margin: 0 auto;
+      padding: 0 20px;
     }
     &__index {
       font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
@@ -772,14 +1263,21 @@ body {
       color: #fff;
       text-align: center;
       font-size: 48px;
-      margin: 125px auto 52px;
+      margin: 0 auto 52px;
+      @media screen and (max-width: 1023px) {
+        font-size: 32px;
+        margin: 0 auto 38px;
+      }
+      @media screen and (max-width: 599px) {
+        font-size: 22px;
+      }
     }
     &__movie {
       &-content {
         position: relative;
         video {
           width: 100%;
-          border-radius: 300px;
+          border-radius: 311px;
         }
       }
       &-button {
@@ -798,6 +1296,10 @@ body {
           width: 100%;
           text-align: center;
           margin: 0 auto 80px;
+          @media screen and (max-width: 1023px) {
+            margin: 0 auto 27px;
+            font-weight: bold;
+          }
         }
         &-area {
           width: 42px;
@@ -806,6 +1308,11 @@ body {
           border-radius: 50%;
           position: relative;
           cursor: pointer;
+          border: none;
+          @media screen and (max-width: 1023px) {
+            width: 15px;
+            height: 15px;
+          }
           &::before, &::after {
             content: '';
             position: absolute;
@@ -818,11 +1325,61 @@ body {
             width: 88px;
             height: 88px;
             background-color: rgba(255, 255, 255 ,0.3);
+            animation: changeCircleSize01 2.5s ease-out 0s forwards infinite;
+            @keyframes changeCircleSize01 {
+              from {
+                width: 42px;
+                height: 42px;
+              }
+              to {
+                width: 88px;
+                height: 88px;
+              }
+            }
+            @media screen and (max-width: 1023px) {
+              width: 30px;
+              height: 30px;
+              @keyframes changeCircleSize01 {
+                from {
+                  width: 15px;
+                  height: 15px;
+                }
+                to {
+                  width: 30px;
+                  height: 30px;
+                }
+              }
+            }
           }
           &:after {
             width: 138px;
             height: 138px;
             background-color: rgba(255, 255, 255 ,0.3);
+            animation: changeCircleSize02 2.5s ease-out 0s forwards infinite;
+            @keyframes changeCircleSize02 {
+              from {
+                width: 42px;
+                height: 42px;
+              }
+              to {
+                width: 138px;
+                height: 138px;
+              }
+            }
+            @media screen and (max-width: 1023px) {
+              width: 47px;
+              height: 47px;
+              @keyframes changeCircleSize01 {
+                from {
+                  width: 15px;
+                  height: 15px;
+                }
+                to {
+                  width: 47px;
+                  height: 47px;
+                }
+              }
+            }
           }
         }
       }
@@ -843,7 +1400,7 @@ body {
       color: #fff;
     }
     &__data {
-      opacity: 0;
+      //opacity: 0;
       // display: none;
       position: fixed;
       top: 50%;
@@ -856,11 +1413,18 @@ body {
     }
   }
 
+  // スライダーギャラリー（トップ・詳細共通）
   &gallery {
-    background: url('/img_gallery_bg01.jpg') no-repeat center center / cover;
+    background: url('/img_gallery_bg01.jpg') no-repeat center bottom -76px / cover;
     padding: 0 0 96px;
-    height: 1000px;
+    height: 1177px;
     position: relative;
+    @media screen and (max-width: 1023px) {
+      height: 900px;
+    }
+    @media screen and (max-width: 599px) {
+      height: 620px;
+    }
     &__index {
       font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
       font-weight: 700;
@@ -868,27 +1432,200 @@ body {
       text-align: center;
       font-size: 48px;
       margin: 0 auto 50px;
+      @media screen and (max-width: 1023px) {
+        font-size: 32px;
+      }
+      @media screen and (max-width: 599px) {
+        font-size: 22px;
+      }
     }
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    //   background: rgb(255,255,255);
-    //   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 33%);
-    //   width: 100%;
-    //   height: 100%;
-    //   top: 0;
-    //   left: 0;
-    //   z-index: -1;
-    //   opacity: 0.8;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    // フロア
+    &::before {
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgb(0, 0, 0) 2%, rgba(255, 255, 255, 0) 24%);
+    }
+    // 上部
+    &::after {
+      background: rgb(0,0,0);
+      background: linear-gradient(180deg, rgb(0, 0, 0) 16%, rgba(102, 102, 102, 0) 18%);
+    }
+    // &__button {
+    //   width: 465px;
+    //   height: 80px;
+    //   margin: 96px auto 0;
     // }
+    &__slider {
+      &.swiper {
+        overflow: unset;
+      }
+      &Img {
+        width: 720px;
+        max-height: 530px;
+        object-fit: contain;
+        @media screen and (max-width: 1400px) {
+          width: 100%;
+          height: auto;
+        }
+        @media screen and (max-width: 1023px) {
+          // width: 600px;
+        }
+        @media screen and (max-width: 599px) {
+          // width: 292px;
+          max-height: 300px;
+        }
+      }
+      &Shadow {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+      &Wrap {
+        height: 530px;
+        @media screen and (max-width: 1023px) {
+          height: auto;
+        }
+      }
+      &Name {
+        color: #fff;
+        width: 100%;
+        font-size: 40px;
+        font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+        text-align: center;
+        margin: 88px auto 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        @media screen and (max-width: 1023px) {
+          font-size: 28px;
+          margin: 0 auto 33px;
+        }
+        @media screen and (max-width: 599px) {
+          font-size: 15px;
+        }
+      }
+      &Button {
+        width: 321px;
+        height: 67px;
+        margin: 180px auto 0;
+        position: relative;
+        @media screen and (max-width: 1023px) {
+          margin: 97px auto 0;
+        }
+        @media screen and (max-width: 599px) {
+          width: 100%;
+          max-width: 247px;
+        }
+        &::after {
+          content: url('/icon_arrow01.svg');
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          right: 22px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .swiper {
+        overflow: unset;
+        &-wrapper {
+          text-align: center;
+        }
+        &-slide {
+          &.swiper-slide-prev, &.swiper-slide-next  {
+            .l-gallery {
+              &__slider {
+                &Name, &Button {
+                  display: none;
+                }
+              }
+              &__sliderShadow {
+                bottom: -381px;
+                filter: blur(22px);
+              }
+            }
+          }
+        }
+        &-button {
+          &-next {
+            left: unset;
+            right: 15%;
+            @media screen and (max-width: 1023px) {
+              right: 40px;
+            }
+          }
+          &-prev {
+            right: unset;
+            left: 15%;
+            @media screen and (max-width: 1023px) {
+              left: 40px;
+            }
+          }
+          &-next, &-prev {
+            border: 1.89px solid #949494;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            @media screen and (max-width: 599px) {
+              border-color: #fff;
+              width: 23px;
+              height: 23px;
+            }
+            &::after {
+              color: #949494;
+              font-size: 33px;
+              @media screen and (max-width: 599px) {
+                color: #fff;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+        &-pagination {
+          &-bullet {
+            background: transparent;
+            border: 2px solid #fff;
+            width: 21px;
+            height: 21px;
+            opacity: 1;
+            &-active {
+              background: #fff;
+            }
+          }
+        }
+      }
+      .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+        top: unset;
+        bottom: 180px;
+        gap: 0 24px;
+        display: flex;
+        justify-content: center;
+      }
+    }
     &__category {
+      @media screen and (max-width: 1023px) {
+        padding: 0 20px;
+      }
       &List {
         width: 946px;
-        margin: 0 auto;
+        margin: 0 auto 100px;
         border: 1px solid #fff;
         display: flex;
         justify-content: center;
         border-radius: 30px;
+        @media screen and (max-width: 1023px) {
+          width: 100%;
+        }
       }
       &Item {
         color: #fff;
@@ -899,6 +1636,12 @@ body {
         width: calc(100% / 3);
         padding: 6px 0;
         cursor: pointer;
+        @media screen and (max-width: 1023px) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: 599px) {
+          font-size: 12px;
+        }
         &:not(:last-child) {
           border-right: 1px solid #fff;
         }
@@ -906,6 +1649,45 @@ body {
           background-color: #fff;
           color: #000;
         }
+        &:first-child {
+          &.is-current {
+            border-radius: 30px 0 0 30px;
+          }
+        }
+        &:last-child {
+          &.is-current {
+            border-radius: 0 30px 30px 0;
+          }
+        }
+      }
+    }
+  }
+
+  &buttonArea {
+    background-color: #000;
+    position: relative;
+    z-index: 10;
+    padding: 0 0 96px;
+    @media screen and (max-width: 1023px) {
+      padding: 0 38px 51px;
+    }
+    &__link {
+      width: 465px;
+      height: 80px;
+      margin: 0 auto;
+      position: relative;
+      @media screen and (max-width: 599px) {
+        width: 100%;
+        height: 60px;
+      } 
+      &::after {
+        content: url('/icon_arrow01.svg');
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }
@@ -915,4 +1697,16 @@ body {
   // display: block;
   opacity: 1;
   z-index: 100;
+}
+
+.pc-only {
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+}
+.sp-only {
+  display: none;
+  @media screen and (max-width: 1023px) {
+    display: block;
+  }
 }

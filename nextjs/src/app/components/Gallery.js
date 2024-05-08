@@ -36,7 +36,7 @@ export const Gallery = () => {
   // Swiper設定
   const slideSettings = {
     0: {
-      slidesPerView: 1.5,
+      slidesPerView: 2,
       spaceBetween: 0,
     },
     1024: {
